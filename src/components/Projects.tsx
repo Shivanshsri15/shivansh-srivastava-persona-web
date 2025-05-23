@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Github, ExternalLink, ShoppingCart, MessageCircle, Edit3 } from 'lucide-react';
+import { Github, ExternalLink, ShoppingCart, MessageCircle, Edit3, Calculator, Building2 } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -10,7 +10,9 @@ const Projects = () => {
       techStack: ["MERN", "PayPal API"],
       github: "EcommercePlatformV1",
       icon: ShoppingCart,
-      gradient: "from-blue-500 to-cyan-400",
+      gradient: "from-emerald-500 to-green-400",
+      bgColor: "bg-emerald-50",
+      borderColor: "border-emerald-200",
       features: [
         "User Authentication & Authorization",
         "PayPal Payment Integration", 
@@ -26,7 +28,9 @@ const Projects = () => {
       techStack: ["MERN", "Redux Toolkit", "JWT", "React-Bootstrap"],
       github: "TwitterCloneV1",
       icon: MessageCircle,
-      gradient: "from-purple-500 to-pink-400",
+      gradient: "from-blue-500 to-cyan-400",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
       features: [
         "Real-time Tweet Feed",
         "User Follow System",
@@ -42,7 +46,9 @@ const Projects = () => {
       techStack: ["MERN", "JWT", "Redux", "Gemini AI", "Multer"],
       github: "QuirkyPost",
       icon: Edit3,
-      gradient: "from-green-500 to-emerald-400",
+      gradient: "from-purple-500 to-violet-400",
+      bgColor: "bg-purple-50",
+      borderColor: "border-purple-200",
       features: [
         "AI-Powered Content Assistance",
         "Rich Text Editor",
@@ -51,19 +57,55 @@ const Projects = () => {
         "Image Upload & Management",
         "Social Interactions"
       ]
+    },
+    {
+      title: "Tax Calculator Platform",
+      description: "A robust and user-friendly tool designed for the Old Tax Regime that simplifies tax calculations, helps optimize deductions, and ensures accurate tax planning with ease.",
+      techStack: ["React", "Bootstrap", "TypeScript"],
+      github: "eTHXM8r6",
+      icon: Calculator,
+      gradient: "from-orange-500 to-red-400",
+      bgColor: "bg-orange-50",
+      borderColor: "border-orange-200",
+      features: [
+        "Accurate Income Tax Calculation",
+        "HRA, LTA, Gratuity Deductions",
+        "80C/80D/80G Deductions Applied",
+        "Real-time Tax Slab Comparison",
+        "Simple & Intuitive UI",
+        "Instant Tax Breakdown"
+      ]
+    },
+    {
+      title: "Banking System (OOP)",
+      description: "A simple banking system implemented in TypeScript that supports multiple account types, transactions, and interest calculations using Object-Oriented Programming principles.",
+      techStack: ["TypeScript", "Node.js", "OOP"],
+      github: "Banking-System-Oops",
+      icon: Building2,
+      gradient: "from-indigo-500 to-blue-400",
+      bgColor: "bg-indigo-50",
+      borderColor: "border-indigo-200",
+      features: [
+        "Multiple Account Types",
+        "Deposit & Withdraw Funds",
+        "Transaction History",
+        "Interest Calculations",
+        "Object-Oriented Design",
+        "TypeScript Implementation"
+      ]
     }
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-900">
+    <section id="projects" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             A showcase of my recent work, demonstrating expertise in full-stack development and modern technologies.
           </p>
         </div>
@@ -72,7 +114,7 @@ const Projects = () => {
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             return (
-              <div key={index} className="group bg-gray-800/50 rounded-2xl overflow-hidden hover:bg-gray-800/70 transition-all duration-300 border border-gray-700 hover:border-gray-600">
+              <div key={index} className={`group ${project.bgColor} rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 border ${project.borderColor}`}>
                 <div className="p-8 lg:p-12">
                   <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8">
                     {/* Project Icon & Title */}
@@ -84,13 +126,13 @@ const Projects = () => {
 
                     {/* Project Details */}
                     <div className="flex-1">
-                      <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">{project.title}</h3>
-                      <p className="text-gray-300 text-lg mb-6 leading-relaxed">{project.description}</p>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">{project.title}</h3>
+                      <p className="text-gray-600 text-lg mb-6 leading-relaxed">{project.description}</p>
                       
                       {/* Tech Stack */}
                       <div className="flex flex-wrap gap-3 mb-6">
                         {project.techStack.map((tech, techIndex) => (
-                          <span key={techIndex} className={`px-4 py-2 bg-gradient-to-r ${project.gradient} bg-opacity-20 text-white rounded-full text-sm font-medium border border-opacity-30`}>
+                          <span key={techIndex} className={`px-4 py-2 bg-white border border-gray-200 text-gray-700 rounded-full text-sm font-medium`}>
                             {tech}
                           </span>
                         ))}
@@ -101,7 +143,7 @@ const Projects = () => {
                         {project.features.map((feature, featureIndex) => (
                           <div key={featureIndex} className="flex items-center">
                             <div className={`w-2 h-2 bg-gradient-to-r ${project.gradient} rounded-full mr-3`}></div>
-                            <span className="text-gray-300 text-sm">{feature}</span>
+                            <span className="text-gray-600 text-sm">{feature}</span>
                           </div>
                         ))}
                       </div>
