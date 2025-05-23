@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Download, Code } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,13 +48,11 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-emerald-200 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-purple-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <span className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-              Shivansh Srivastava
-            </span>
+            <span className="text-2xl animate-bounce">💻</span>
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
@@ -65,8 +63,8 @@ const Navigation = () => {
                   onClick={() => scrollToSection(item.id)}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'bg-emerald-100 text-emerald-700 shadow-sm'
-                      : 'text-gray-600 hover:bg-emerald-50 hover:text-emerald-600'
+                      ? 'bg-purple-100 text-purple-800 shadow-sm'
+                      : 'text-gray-700 hover:bg-purple-50 hover:text-purple-700'
                   }`}
                 >
                   {item.label}
@@ -79,19 +77,10 @@ const Navigation = () => {
                 href="https://drive.google.com/file/d/1InuEWb0w_xIu5qxytLqcX1ySPuoadkV2/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-3 py-2 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 transition-colors duration-300"
+                className="inline-flex items-center px-3 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-md hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105"
               >
                 <Download size={16} className="mr-2" />
                 Resume
-              </a>
-              <a
-                href="https://leetcode.com/u/Shivanshsri157/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
-              >
-                <Code size={16} className="mr-2" />
-                LeetCode
               </a>
             </div>
           </div>
@@ -99,7 +88,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 transition-colors duration-300"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-purple-600 hover:bg-purple-50 transition-colors duration-300"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -108,16 +97,16 @@ const Navigation = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md border-t border-emerald-200">
+        <div className="md:hidden animate-fade-in">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md border-t border-purple-200">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-all duration-300 ${
                   activeSection === item.id
-                    ? 'bg-emerald-100 text-emerald-700'
-                    : 'text-gray-600 hover:bg-emerald-50 hover:text-emerald-600'
+                    ? 'bg-purple-100 text-purple-800'
+                    : 'text-gray-700 hover:bg-purple-50 hover:text-purple-700'
                 }`}
               >
                 {item.label}
@@ -128,19 +117,10 @@ const Navigation = () => {
                 href="https://drive.google.com/file/d/1InuEWb0w_xIu5qxytLqcX1ySPuoadkV2/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center px-3 py-2 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 transition-colors duration-300"
+                className="flex items-center px-3 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-md hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
               >
                 <Download size={16} className="mr-2" />
                 Resume
-              </a>
-              <a
-                href="https://leetcode.com/u/Shivanshsri157/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
-              >
-                <Code size={16} className="mr-2" />
-                LeetCode
               </a>
             </div>
           </div>
